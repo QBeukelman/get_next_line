@@ -49,6 +49,7 @@ void run()
 int main(void)
 {
 	run();
+	// while (1);
 	return (0);
 }
 ```
