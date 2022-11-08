@@ -14,7 +14,7 @@ The functions are written in C language and therefore require the `gcc` **compil
 
 #### 1. Create a main entry point
 
-To compile, go to the library path directory and run:
+Add the following code to a `main.c` file, in the root directory:
 
 ```c
 #include <stdio.h>
