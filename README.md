@@ -1,16 +1,54 @@
+
 # 42_get_next_line
 
 This assigment is to write a function that returns a line read from a `file descriptor`. Repeated calls (e.g., using a loop) to your `get_next_line()` function should let you read the text file pointed to by the file descriptor, one line at a time. Your function should return the line that was read.
 If there is nothing else to read or if an error occurred, it should return `NULL`.
 
 > For more information visit: [Codam.nl](https://www.codam.nl "Codam.nl") or [42 Cursus Subjects](https://github.com/Surfi89/42cursus/tree/main/Subject%20PDFs "42 Cursus Subjects")
-## Usage
+<br />
 
-#### Requirements
+
+# Function
+
+### `get_next_line`
+
+> **Parameters:** The file descriptor to read from.
+
+> **Return Value:** Read line, correct behavour. Or, NULL if there is nothing else to read, or an error occured.
+
+```c
+  char  *get_next_line(int fd);
+```
+<br />
+
+
+# Accessories
+
+#### `helpers`
+```c
+  char  *get_next_line(int fd);
+  char  *ft_read_and_save(int fd, char  *saved_line);
+  char  *ft_save(char  *line_saved);
+  void  ft_str_dup(char  *saved_line, char  *str, int i);
+  char  *ft_process_line(char  *line_saved);
+```
+#### `utils`
+```c
+  char  	*ft_gnl_strchr(char  *s, int c);
+  size_t  	ft_gnl_strlen(char  *str);
+  char  	*ft_gnl_strjoin(char  *s1, char  *s2);
+  int  		ft_gnl_len(char  *saved_line);
+```
+<br />
+
+
+# Usage
+
+### Requirements
 
 The functions are written in C language and therefore require the `gcc` **compiler** and some **standard C libraries** to run.
 
-#### Instructions
+### Instructions
 
 #### 1. Create a main entry point
 
@@ -22,7 +60,6 @@ Add the following code to a `main.c` file, in the root directory:
 #include <fcntl.h>
 #include "get_next_line.h"
 
-
 void run()
 {
 	char *buffer = NULL;
@@ -32,8 +69,7 @@ void run()
 	if (!get_next_line(42))
 		printf("returning NUll\n");
 	buffer = get_next_line(fd);
-
-
+	
 	int i = 0;
 	while(buffer)
 	{
@@ -55,7 +91,7 @@ int main(void)
 ```
 
 
-#### 2. Use the function
+### 2. Use the function
 
 Compile all C files to the executable `a.out`, set the `BUFFER_SIZE` and use `cat -e` to check the spacing of the return. 
 
@@ -64,7 +100,7 @@ Compile all C files to the executable `a.out`, set the `BUFFER_SIZE` and use `ca
 ```
 
 
-#### 3. Check for leaks
+### 3. Check for leaks
 
 First, add an infinate loop to the main, to keep the program running.
 
@@ -77,10 +113,12 @@ Run the program, to start the infinate loop. Open a new terminal and run the cod
 ```shell
   leaks a.out
 ```
+<br />
 
 
-## Testing
+# Testing
 
 You can use this third party tester to measure the capability of the library:
 
 - [Francinette](https://github.com/xicodomingues/francinette "Francinette")
+<br />
